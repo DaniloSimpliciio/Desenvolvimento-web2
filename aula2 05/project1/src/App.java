@@ -5,6 +5,5 @@ public class App {
         int sum = number1 + number2;
 
         System.out.println("Soma= " + sum);
-
     }
 }
