@@ -12,7 +12,7 @@ public class BankAccount {
 
     public void withdraw(double amont){
         if(balance >= amont){
-            balance -=amont;
+            balance -= amont;
         }
     }
 
