@@ -2,19 +2,20 @@ public class BankAccount {
 
     //declaração de atributos/ variaveis de instância
     private int id;
-    private String clientName;//letra maiuscula no String por não ser do tipo primitivo, é uma classe.
+    private     Client client;//letra maiuscula no String por não ser do tipo primitivo, é uma classe.
     private double balance;
 
     //metodos construtores
 
-    public BankAccount(int id, String clientName, double balance ){
+    public BankAccount(int id, Client client, double balance ){
         this.id = id;
-        this.clientName = clientName;
-        this.balance = balance;
+        this.client = client;
+        setBalance(balance);
+
     }
 
-    public BankAccount(int id, String clientName){
-        this(id,clientName,0);
+    public BankAccount(int id, Client client){
+        this(id,client,0);
     }
 
     // metodos acessadores
@@ -26,16 +27,19 @@ public class BankAccount {
         return id;
     }
 
-    public void setClientName(String clientName){
-        this.clientName = clientName;
+    public void setClient(Client client){
+        this.client = client;
     }
 
-    public String getClientName(){
-        return clientName;
+    public Client getClient(){
+        return client;
     }
 
     public void setBalance(double balance){
-        this.balance = balance;
+        if (balance >=0){
+            this.balance = balance;
+        }
+       
     }
 
     public double getBalance(){
@@ -54,7 +58,7 @@ public class BankAccount {
     }
 
     public String toString(){
-        return "dados da conta" + "\ncodigo: " + id +"\nnome do cliente: "+clientName + "\nsaldo: R$ "+ balance;
+        return "dados da conta: " + "\ncodigo da conta: " + id + "\n" + client + "\nsaldo: R$ "+ balance;
 
     }
 
