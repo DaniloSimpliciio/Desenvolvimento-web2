@@ -3,8 +3,11 @@ package br.edu.ifspcjo.ads.web2.view;
 import java.util.Scanner;
 
 import br.edu.ifspcjo.ads.web2.controller.EmpolyeersController;
-//import br.edu.ifspcjo.ads.web2.model.Employee;
-//import br.edu.ifspcjo.ads.web2.model.HourEmployee;
+import br.edu.ifspcjo.ads.web2.model.ComissionedAndSalarieEmployee;
+import br.edu.ifspcjo.ads.web2.model.ComissionedEmployee;
+import br.edu.ifspcjo.ads.web2.model.Employee;
+import br.edu.ifspcjo.ads.web2.model.Employee;
+import br.edu.ifspcjo.ads.web2.model.HourEmployee;
 import br.edu.ifspcjo.ads.web2.model.SalarieEmployee;
 
 
@@ -15,13 +18,13 @@ public class App {
 
     public static int menu() {
 
-        System.out.println("-----------------------");
-        System.out.println("1 -Salario-------------");
-        System.out.println("2 - Procurar produto---");
-        System.out.println("3 - Atualizar estoque--");
-        System.out.println("4 - ------");
-        System.out.println("5 - ---------------");
-        System.out.println("-----------------------");
+        System.out.println("---------------------------");
+        System.out.println("1 - Cadastro Funcionários--");
+        System.out.println("2 - Listar Salario---------");
+        System.out.println("3 - -----------------------");
+        System.out.println("4 - -----------------------");
+        System.out.println("5 - -----------------------");
+        System.out.println("---------------------------");
 
         return scanner.nextInt();
     }
@@ -40,26 +43,100 @@ public class App {
 
     }
 
+
         public static void adicionarSalarieEmployee() {
-        System.out.println("Código: ");
+
+        scanner.nextLine();
+        System.out.println("Nome: ");
         String nome = scanner.nextLine();
 
-        System.out.println("Nome do produto: ");
+        System.out.println("CPF: ");
         String cpf = scanner.nextLine();
 
-        System.out.println("Quantidade: ");
-        double quantidade = scanner.nextDouble();
+        System.out.println("Salario: ");
+        double Salary = scanner.nextDouble();
 
-        SalarieEmployee salarieEmployee = new SalarieEmployee(nome, cpf, quantidade);
+        SalarieEmployee salarieEmployee = new SalarieEmployee(nome, cpf, Salary);
 
         if (manager.save(salarieEmployee)) {
             System.out.println("Produto salvo!");
         } else {
             System.out.println("Código repetido! Produto não foi salvo.");
         }
-
-
         }
+
+
+        public static void adicionarHourEmployee(){
+            scanner.nextLine();
+            System.out.println("nome: ");
+            String name = scanner.nextLine();
+
+            System.out.println("cpf: ");
+            String cpf = scanner.nextLine();
+
+            System.out.println("Numero de horas trabalhadas: ");
+            int number = scanner.nextInt();
+
+            System.out.println("Valor da hora: ");
+            double value = scanner.nextDouble();
+
+            HourEmployee hourEmployee = new HourEmployee(name,cpf, number, value);
+            if(manager.save(hourEmployee)){
+                System.out.println("Funcionario salvo!!");
+            }
+            else{System.out.println("Não salvo!");}
+        }
+
+
+        public static void adicionarComissionedEmployee(){
+            scanner.nextLine();
+            System.out.println("nome: ");
+            String name = scanner.nextLine();
+
+            System.out.println("cpf: ");
+            String cpf = scanner.nextLine();
+            
+            System.out.println("Venda: ");
+            double sales = scanner.nextDouble();
+
+            System.out.println("Porcentagem: ");
+            double porcentagem = scanner.nextDouble();
+            
+
+            ComissionedEmployee ComissionedEmployee = new br.edu.ifspcjo.ads.web2.model.ComissionedEmployee(name,cpf, sales,porcentagem);
+            if(manager.save(ComissionedEmployee)){
+            System.out.println("Funcionario salvo!!");
+            }
+            else{System.out.println("Não salvo!");}
+        }
+
+            public static void adicionarComissionedAndSalarieEmployee(){
+            scanner.nextLine();
+
+             System.out.println("nome: ");
+            String name = scanner.nextLine();
+
+            System.out.println("cpf: ");
+            String cpf = scanner.nextLine();
+            
+            System.out.println("Venda: ");
+            double sales = scanner.nextDouble();
+
+            System.out.println("Porcentagem: ");
+            double porcentagem = scanner.nextDouble();
+
+            System.out.println("Salario: ");
+            double salario = scanner.nextDouble();
+            
+
+            ComissionedAndSalarieEmployee comissionedAndSalarieEmployee = new ComissionedAndSalarieEmployee(name,cpf,sales,porcentagem,salario);
+            if(manager.save(comissionedAndSalarieEmployee)){
+            System.out.println("Funcionario salvo!!");
+            }
+            else{System.out.println("Não salvo!");}    
+
+            }
+
 
 
 
@@ -89,13 +166,27 @@ public class App {
                         case 1:
                             adicionarSalarieEmployee();
                             break;
-                    
+                        case 2:
+                            adicionarHourEmployee(); 
+                            break;
+                        case 3:
+                            adicionarComissionedEmployee();
+                            break;
+                        case 4:
+                            adicionarComissionedAndSalarieEmployee();
+                            break;
+                        case 5:
+                            System.out.println("Programa encerrado.");
+                            break;
                         default:
+                            System.out.println("opção inválida!");
                             break;
                     }
-                    }while (opcao !=5);
+                    }while (opcao2 !=5);
                     break;
 
+                case 2: manager.list();
+                     break;
                 case 5:
                     System.out.println("Programa encerrado.");
                     break;
@@ -108,6 +199,6 @@ public class App {
 
         scanner.close();
 }
+}
 
-    }
 

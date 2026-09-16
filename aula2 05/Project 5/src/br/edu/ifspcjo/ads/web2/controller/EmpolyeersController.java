@@ -22,4 +22,11 @@ public boolean save(Employee employee) {
     return false;
 
     }
+
+    public void list(){
+        for(Employee employee: employeesList){
+            System.out.println(employee);
+            System.out.println("Renda: R$ "+ employee.calculateIncome());
+        }
+    }
 }
