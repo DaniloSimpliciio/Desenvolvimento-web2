@@ -29,4 +29,15 @@ public boolean save(Employee employee) {
             System.out.println("Renda: R$ "+ employee.calculateIncome());
         }
     }
+
+    public Employee procurar(String name){
+        for(Employee employee: employeesList){
+            if(employee.getName().equals(name)){
+                return employee;
+            }
+        }
+        return null;
+    }
 }
+
+

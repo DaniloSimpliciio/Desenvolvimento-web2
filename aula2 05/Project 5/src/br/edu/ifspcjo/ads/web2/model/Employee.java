@@ -1,6 +1,6 @@
 package br.edu.ifspcjo.ads.web2.model;
 
-public class Employee {
+public abstract class Employee {
     
     protected String name;
     protected String cpf;
@@ -30,8 +30,6 @@ public class Employee {
     public String toString() {
         return "Employee [name=" + name + ", cpf=" + cpf + "]";
     }
-    public double calculateIncome(){
-        return 0;
-    }
+    public abstract double calculateIncome();
      
 }

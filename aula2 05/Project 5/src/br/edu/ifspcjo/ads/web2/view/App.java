@@ -5,8 +5,6 @@ import java.util.Scanner;
 import br.edu.ifspcjo.ads.web2.controller.EmpolyeersController;
 import br.edu.ifspcjo.ads.web2.model.ComissionedAndSalarieEmployee;
 import br.edu.ifspcjo.ads.web2.model.ComissionedEmployee;
-import br.edu.ifspcjo.ads.web2.model.Employee;
-import br.edu.ifspcjo.ads.web2.model.Employee;
 import br.edu.ifspcjo.ads.web2.model.HourEmployee;
 import br.edu.ifspcjo.ads.web2.model.SalarieEmployee;
 
@@ -103,7 +101,7 @@ public class App {
             double porcentagem = scanner.nextDouble();
             
 
-            ComissionedEmployee ComissionedEmployee = new br.edu.ifspcjo.ads.web2.model.ComissionedEmployee(name,cpf, sales,porcentagem);
+            ComissionedEmployee ComissionedEmployee = new ComissionedEmployee(name,cpf, sales,porcentagem);
             if(manager.save(ComissionedEmployee)){
             System.out.println("Funcionario salvo!!");
             }
