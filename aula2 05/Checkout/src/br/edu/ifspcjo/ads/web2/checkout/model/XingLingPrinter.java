@@ -1,0 +1,17 @@
+package br.edu.ifspcjo.ads.web2.checkout.model;
+
+public class XingLingPrinter implements Printer {
+
+    
+    @Override
+    public void print(Printable printable) {
+        System.out.println("*************************");
+        System.out.println(printable.getPageHeader());
+        System.out.println("*************************");
+        System.out.println(printable.getPageBory());
+        System.out.println("**************************");
+        System.out.println("*********Super XingLing*****");
+        System.out.println("**************************");
+    }
+
+}
