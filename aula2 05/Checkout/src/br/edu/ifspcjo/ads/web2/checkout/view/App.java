@@ -8,13 +8,14 @@ import br.edu.ifspcjo.ads.web2.checkout.model.EpsonPrinter;
 import br.edu.ifspcjo.ads.web2.checkout.model.Operator;
 import br.edu.ifspcjo.ads.web2.checkout.model.ReadCardOperator;
 import br.edu.ifspcjo.ads.web2.checkout.model.XingLingPrinter;
-import javafx.print.Printer;
+import br.edu.ifspcjo.ads.web2.checkout.model.Printer;
+//import javafx.print.Printer;
 
 public class App {
     public static void main(String[] args) throws Exception {
         Operator operator = new ReadCardOperator();
         Printer printer = new XingLingPrinter();
-        Card card = new Card("juliana", "1234.5678");
+        Card card = new Card("juliana", "5678.5678");
 
         Buy buy = new Buy("juliana", 400, "Hamburger especial");
         Checkout checkout = new Checkout(printer, operator);
